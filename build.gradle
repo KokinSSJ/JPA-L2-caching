@@ -1,0 +1,16 @@
+plugins {
+	id "java"
+	id 'war'
+}
+ 
+repositories {
+    jcenter()
+}
+
+dependencies {
+	compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.8'
+	compileOnly 'javax:javaee-api:7.0'
+
+    testRuntime 'junit:junit:4.12'
+}
+
