@@ -15,6 +15,12 @@
 -- limitations under the License.
 --
 
+ 
+ -- load users
+ insert into Users (id, name, surname) values (0, 'D', 'B') 
+ 
 -- You can use this file to load seed data into the database using SQL statements
--- insert into Events (id, time, message) values (0, '2001-10-11 17:00:00', 'event 1') 
--- insert into Events (id, time, message) values (1, '2001-10-11 19:00:00', 'event 2') 
+ insert into Events (id, time, message, user_id) values (0, '2001-10-11 17:00:00', 'event 1', 0) 
+ insert into Events (id, time, message, user_id) values (1, '2001-10-11 19:00:00', 'event 2', 0) 
+ 
+

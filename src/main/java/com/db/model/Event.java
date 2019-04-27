@@ -17,7 +17,7 @@ import javax.persistence.Table;
 public class Event {
 
 	static class Query {
-		static final String FIND_ALL = "Query.findAll";
+		static final String FIND_ALL = "Event.findAll";
 	}
 
 	@Id
@@ -65,6 +65,11 @@ public class Event {
 			return false;
 		Event other = (Event) obj;
 		return Objects.equals(this.id, other.id);
+	}
+
+	@Override
+	public String toString() {
+		return "Event [id=" + id + ", time=" + time + ", message=" + message + "]";
 	}
 
 }

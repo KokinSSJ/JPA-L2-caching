@@ -37,6 +37,7 @@ public class EventRest {
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Event> getEvents() {
 		System.out.println(LocalDateTime.now());
+		System.out.println(eventService.findAll());
 		return eventService.findAll();
 	}
 
