@@ -2,7 +2,6 @@ package com.db.rest;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.transaction.Transactional;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -22,10 +21,8 @@ public class UserRest {
 	@GET
 	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	@Transactional
 	public User getUserById(@PathParam("id") int id) {
 		User user = userRepository.findById(id);
-		System.out.println(user);
 		return user;
 	}
 }

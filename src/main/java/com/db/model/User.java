@@ -31,7 +31,7 @@ public class User {
 
 	private String surname;
 
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id")
 	private List<Event> events;
 
