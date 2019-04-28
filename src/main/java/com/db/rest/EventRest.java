@@ -9,10 +9,12 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.db.model.Event;
+import com.db.model.EventRepository;
 import com.db.service.EventService;
 
 @ApplicationScoped
@@ -20,7 +22,9 @@ import com.db.service.EventService;
 public class EventRest {
 
 	@Inject
-	EventService eventService;
+	private EventService eventService;
+	@Inject
+	private EventRepository eventRepository;
 
 	@POST
 	@Path("/")
@@ -36,17 +40,22 @@ public class EventRest {
 	@Path("/")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Event> getEvents() {
-		System.out.println(LocalDateTime.now());
-		System.out.println(eventService.findAll());
-		return eventService.findAll();
+		System.out.println("-----------------------------------");
+		System.out.println("getEvents: " + LocalDateTime.now());
+		List<Event> allEvents = eventService.findAll();
+		System.out.println(allEvents);
+		return allEvents;
 	}
 
 	@GET
-	@Path("/count")
+	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public int getStatistics() {
-		System.out.println(LocalDateTime.now());
-		return eventService.findAll().size();
+	public Event getEventById(@PathParam("id") int id) {
+		System.out.println("-----------------------------------");
+		System.out.println("getEventById: " + LocalDateTime.now());
+		Event event = eventRepository.findById(id);
+		System.out.println(event);
+		return event;
 	}
 
 }
