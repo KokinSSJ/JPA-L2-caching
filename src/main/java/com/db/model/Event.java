@@ -3,6 +3,7 @@ package com.db.model;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +15,8 @@ import javax.persistence.Table;
 @NamedQueries(@NamedQuery(name = Event.Query.FIND_ALL, query = "from Event e"))
 @Entity
 @Table(name = "Events")
+@Cacheable
+//@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Event {
 
 	static class Query {
