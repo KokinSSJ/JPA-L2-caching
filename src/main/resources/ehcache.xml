@@ -26,12 +26,4 @@
             memoryStoreEvictionPolicy="LRU">
         <persistence strategy="localTempSwap"/>
     </defaultCache>
-    
-    <cache name="com.db.model.Event"
-           maxElementsInMemory="1"
-           eternal="false"
-           timeToIdleSeconds="15"
-           timeToLiveSeconds="30"
-           overflowToDisk="false"
-            />
 </ehcache>
